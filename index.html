@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alsteryoga by Kathi</title>
+<meta name="description" content="Yoga in Hamburg mit Kathi">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pl:#fff0f5;--ps:#ffd6e7;--pm:#f9a8c9;
+  --pk:#e91e8c;--pd:#c2185b;
+  --dk:#2a0a18;--md:#7a3558;--mt:#b07090;
+  --wh:#ffffff;--bg:#fff8fb;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Jost',sans-serif;
+  --mw:1100px;--nh:80px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--dk);line-height:1.75;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{text-decoration:none;color:inherit}
+
+nav{position:fixed;inset:0 0 auto 0;height:var(--nh);z-index:200;display:flex;align-items:center;padding:0 2rem;transition:background .4s,box-shadow .4s}
+nav.sc{background:rgba(255,248,251,.96);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--ps)}
+.ni{width:100%;max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nl img{height:54px;width:auto;object-fit:contain}
+.nv{display:flex;gap:1.6rem;list-style:none}
+.nv a{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--md);font-weight:400;transition:color .2s}
+.nv a:hover{color:var(--pk)}
+.nc{font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 1.3rem;border:1.5px solid var(--pk);color:var(--pk);border-radius:30px;transition:background .2s,color .2s;white-space:nowrap}
+.nc:hover{background:var(--pk);color:#fff}
+.nb{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nb span{width:24px;height:1.5px;background:var(--dk)}
+
+.mm{display:none;position:fixed;inset:0;background:rgba(255,248,251,.97);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mm.op{display:flex}
+.mm a{font-family:var(--fd);font-size:1.8rem;color:var(--dk)}
+.mx{position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;cursor:pointer;background:none;border:none;color:var(--dk)}
+
+.btn{display:inline-block;padding:.8rem 2rem;border-radius:30px;font-size:.85rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:transform .2s,box-shadow .2s,background .2s,color .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(233,30,140,.2)}
+.bp{background:var(--pk);color:#fff;border:none}
+.bp:hover{background:var(--pd)}
+.bo{border:1.5px solid var(--pk);color:var(--pk);background:transparent}
+.bo:hover{background:var(--pk);color:#fff}
+
+section{padding:6rem 2rem}
+.ct{max-width:var(--mw);margin:0 auto}
+.sl{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--pk);font-weight:500;margin-bottom:.6rem}
+.st{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.15;color:var(--dk)}
+.st em{font-style:italic;color:var(--pk)}
+.sd{font-size:1rem;color:var(--mt);font-weight:300;margin-top:.8rem}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.rv.vi{opacity:1;transform:none}
+
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+.hero{min-height:100svh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hbg{position:absolute;inset:0;background:linear-gradient(135deg,#ffe4f0 0%,#ffd6e7 50%,#fff0f8 100%)}
+.hco{position:relative;z-index:2;max-width:var(--mw);margin:0 auto;padding:calc(var(--nh) + 3rem) 2rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hey{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pk);font-weight:500;margin-bottom:1.2rem;opacity:0;animation:fu .8s .2s forwards}
+.hero h1{font-family:var(--fd);font-size:clamp(2.8rem,6vw,5rem);font-weight:300;line-height:1.1;color:var(--dk);opacity:0;animation:fu .8s .4s forwards}
+.hero h1 em{color:var(--pk);font-style:italic}
+.hsb{margin-top:1.5rem;font-size:1rem;color:var(--md);font-weight:300;max-width:480px;opacity:0;animation:fu .8s .6s forwards;line-height:1.85}
+.hac{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fu .8s .8s forwards}
+.hlo{display:flex;align-items:center;justify-content:center;opacity:0;animation:fu .9s .5s forwards}
+.hlo img{width:100%;max-width:420px;height:auto;object-fit:contain;filter:drop-shadow(0 10px 40px rgba(233,30,140,.15))}
+
+#about{background:var(--wh)}
+.ag{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center}
+.ai{aspect-ratio:3/4;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(233,30,140,.12)}
+.at p{color:var(--md);font-weight:300;margin-bottom:1.2rem}
+.as{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2.5rem 0;padding:2rem 0;border-top:1px solid var(--ps);border-bottom:1px solid var(--ps)}
+.sn{font-family:var(--fd);font-size:2.4rem;font-weight:300;color:var(--pk);line-height:1}
+.sk{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mt);margin-top:.3rem}
+
+#kurse{background:var(--pl)}
+.kn{font-size:.85rem;color:var(--md);font-weight:300;margin-top:.6rem;padding:.6rem 1rem;background:rgba(233,30,140,.06);border-left:3px solid var(--ps);border-radius:4px}
+.kg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.kc{background:var(--wh);border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(233,30,140,.08);transition:transform .3s,box-shadow .3s}
+.kc:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(233,30,140,.15)}
+.ki{height:200px;overflow:hidden}
+.ki img{transition:transform .5s}
+.kc:hover .ki img{transform:scale(1.05)}
+.kb{padding:1.5rem}
+.kt{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--pk);font-weight:500}
+.kb h3{font-family:var(--fd);font-size:1.5rem;font-weight:400;color:var(--dk);margin:.4rem 0 .5rem}
+.kb>p{font-size:.9rem;color:var(--mt);font-weight:300}
+.km{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--ps);font-size:.78rem;color:var(--mt)}
+.kp{margin-top:1.2rem}
+.kpt{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mt);font-weight:500;margin-bottom:.6rem}
+.pz{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;border-bottom:1px solid var(--ps);font-size:.85rem;color:var(--md)}
+.pz:last-child{border-bottom:none}
+.pz strong{color:var(--pk);font-weight:500;font-family:var(--fd);font-size:1rem}
+
+.fc{background:linear-gradient(135deg,#4a1628 0%,#7a2440 100%);border-radius:12px;padding:3rem;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;margin-top:2rem}
+.fc h3{font-family:var(--fd);font-size:2rem;font-weight:300;color:#fff;margin-bottom:.8rem}
+.fc h3 em{color:#ffb8d0;font-style:italic}
+.fc p{color:rgba(255,255,255,.75);font-weight:300;margin-bottom:1.2rem;line-height:1.7}
+.ff{list-style:none;margin-bottom:2rem}
+.ff li{padding:.35rem 0;font-size:.9rem;color:rgba(255,255,255,.8)}
+.ff li::before{content:'+ ';color:#ffb8d0;font-weight:700}
+.flw img{width:180px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,.3))}
+
+#stundenplan{background:var(--wh)}
+.ob{background:linear-gradient(135deg,#ffe0ef,#ffd6e7);border:1.5px solid var(--pm);border-radius:12px;padding:1.5rem 2rem;margin-bottom:2rem;display:flex;align-items:flex-start;gap:1.5rem}
+.oi{font-size:2.2rem;flex-shrink:0}
+.ot h4{font-family:var(--fd);font-size:1.3rem;font-weight:400;color:var(--dk);margin-bottom:.4rem}
+.ot p{font-size:.9rem;color:var(--md);font-weight:300;line-height:1.6}
+.tb{width:100%;border-collapse:collapse;background:var(--wh);border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(233,30,140,.07)}
+.tb th{background:var(--pk);color:#fff;padding:1rem 1.4rem;text-align:left;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.tb td{padding:.9rem 1.4rem;border-bottom:1px solid var(--ps);font-size:.9rem;color:var(--dk)}
+.tb tr:last-child td{border-bottom:none}
+.tb tr:hover td{background:var(--pl)}
+.bd{display:inline-block;padding:.2rem .8rem;border-radius:20px;font-size:.7rem;font-weight:500}
+.bv{background:#fce4f3;color:var(--pd)}
+.bh{background:#fff3e0;color:#bf6000}
+.by{background:#e8eaf0;color:#3949ab}
+.bo2{background:#e8f5e9;color:#2e7d32}
+.bon{background:#e3f2fd;color:#1565c0}
+.bf{background:#4a1628;color:#ffb8d0}
+.sb{display:inline-block;padding:.15rem .6rem;border-radius:20px;font-size:.68rem;background:#e8f5e9;color:#2e7d32;font-weight:500}
+
+#kontakt{background:var(--pl)}
+.kog{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.koi p{color:var(--mt);font-weight:300;margin-top:1rem;margin-bottom:2rem}
+.koil{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2rem}
+.koii{display:flex;align-items:flex-start;gap:1rem}
+.koic{width:40px;height:40px;border-radius:50%;background:var(--ps);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.koill{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pk);font-weight:500}
+.koilv{font-size:.95rem;color:var(--dk)}
+.koia{display:flex;flex-direction:column;gap:.8rem}
+.kfw{background:var(--wh);border-radius:12px;padding:2.5rem;box-shadow:0 4px 24px rgba(233,30,140,.07)}
+.kfw h3{font-family:var(--fd);font-size:1.5rem;font-weight:400;color:var(--dk);margin-bottom:1.5rem}
+.fg{margin-bottom:1.2rem}
+.fg label{display:block;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mt);font-weight:500;margin-bottom:.4rem}
+.fg input,.fg select,.fg textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--ps);border-radius:8px;background:var(--bg);font-family:var(--fb);font-size:.9rem;color:var(--dk);outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--pk)}
+.fg textarea{min-height:100px;resize:vertical}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+#recht{background:var(--wh);padding:4rem 2rem}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
+.rc{background:var(--pl);border-radius:12px;padding:2rem}
+.rc h3{font-family:var(--fd);font-size:1.3rem;font-weight:400;color:var(--dk);margin-bottom:.8rem}
+.rc p{font-size:.88rem;color:var(--mt);font-weight:300;line-height:1.7}
+.rn{font-size:.75rem;color:var(--pk);font-style:italic;margin-top:.8rem;padding:.5rem .8rem;background:rgba(233,30,140,.06);border-radius:6px;display:block}
+
+footer{background:var(--dk);padding:3rem 2rem 2rem}
+.fi{max-width:var(--mw);margin:0 auto}
+.ft{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:2rem}
+.fl img{height:60px;width:auto;object-fit:contain}
+.fli{display:flex;gap:2rem;list-style:none;flex-wrap:wrap;align-items:center}
+.fli a{font-size:.8rem;color:rgba(255,255,255,.45);letter-spacing:.05em;transition:color .2s}
+.fli a:hover{color:var(--pm)}
+.fs{display:flex;gap:.8rem}
+.fs a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.8rem;transition:border-color .2s,background .2s}
+.fs a:hover{border-color:var(--pk);background:rgba(233,30,140,.15);color:var(--pm)}
+.fc2{font-size:.75rem;color:rgba(255,255,255,.25);text-align:center}
+
+@media(max-width:960px){
+  .nv,.nc{display:none}
+  .nb{display:flex}
+  .hco,.ag,.kog{grid-template-columns:1fr;gap:2rem}
+  .hlo{display:none}
+  .kg,.rg{grid-template-columns:repeat(2,1fr)}
+  .fc{grid-template-columns:1fr}
+  .flw{display:none}
+}
+@media(max-width:640px){
+  section{padding:4rem 1.2rem}
+  .kg,.rg{grid-template-columns:1fr}
+  .fr{grid-template-columns:1fr}
+  .ob{flex-direction:column}
+  .tb{font-size:.8rem}
+  .tb th,.tb td{padding:.6rem .8rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="ni">
+    <a href="#home" class="nl"><img src="img/logo.png" alt="Alsteryoga by Kathi"></a>
+    <ul class="nv">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">&#220;ber mich</a></li>
+      <li><a href="#kurse">Kurse und Preise</a></li>
+      <li><a href="#stundenplan">Stundenplan</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#recht">Rechtliches</a></li>
+    </ul>
+    <a href="#kontakt" class="nc">Kurs anfragen</a>
+    <div class="nb" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mm" id="mm">
+  <button class="mx" id="mx">&#x2715;</button>
+  <a href="#home" onclick="cm()">Home</a>
+  <a href="#about" onclick="cm()">&#220;ber mich</a>
+  <a href="#kurse" onclick="cm()">Kurse und Preise</a>
+  <a href="#stundenplan" onclick="cm()">Stundenplan</a>
+  <a href="#kontakt" onclick="cm()">Kontakt</a>
+  <a href="#recht" onclick="cm()">Rechtliches</a>
+</div>
+
+<header class="hero" id="home">
+  <div class="hbg"></div>
+  <div class="hco">
+    <div>
+      <p class="hey">Yoga in Hamburg &middot; An der Alster</p>
+      <h1>Herzlich willkommen &amp;<br>sch&#246;n, dass du<br><em>hier bist</em> &#9825;</h1>
+      <p class="hsb">
+        Ich bin Kathi und unterrichte Yoga mit viel Leidenschaft, Herz und Achtsamkeit. In meinen Stunden verbinde ich Bewegung, Atmung und Achtsamkeit, damit du im Alltag wieder mehr Ruhe und Balance findest.<br><br>
+        Yoga ist f&#252;r mich kein Leistungsziel, sondern ein Weg, den eigenen K&#246;rper bewusster wahrzunehmen und neue Energie zu sch&#246;pfen. In meinen Stunden geht es nicht um Perfektion, sondern darum, sich selbst etwas Gutes zu tun.<br><br>
+        Egal ob du Anf&#228;nger:in bist oder bereits Yoga praktizierst &#8211; du bist herzlich willkommen.<br><br>
+        Ich freue mich, dich auf deinem Yoga-Weg zu begleiten.
+      </p>
+      <div class="hac">
+        <a href="#kurse" class="btn bp">Kurse ansehen</a>
+        <a href="#about" class="btn bo">Mehr &#252;ber mich</a>
+      </div>
+    </div>
+    <div class="hlo">
+      <img src="img/logo.png" alt="Alsteryoga by Kathi Logo">
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="ct">
+    <div class="ag">
+      <div class="ai rv"><img src="img/about.png" alt="Kathi"></div>
+      <div class="rv">
+        <p class="sl">&#220;ber mich</p>
+        <h2 class="st">Ich bin <em>Kathi</em></h2>
+        <br>
+        <div class="at">
+          <p>Hier erz&#228;hlst du deine pers&#246;nliche Yoga-Geschichte: Wie bist du zum Yoga gekommen? Was hat sich ver&#228;ndert? Was treibt dich an zu unterrichten?</p>
+          <p>Deine Ausbildung, deine Zertifizierungen, deine Philosophie &#8211; und warum dein Yoga genau das Richtige f&#252;r deine Teilnehmer:innen ist.</p>
+          <p>Dieser Text ist ein Platzhalter. Schick mir deinen eigenen Text und ich baue ihn ein. &#9825;</p>
+        </div>
+        <div class="as">
+          <div><div class="sn">10+</div><div class="sk">Jahre Yoga</div></div>
+          <div><div class="sn">200h</div><div class="sk">RYT Zertifizierung</div></div>
+          <div><div class="sn">&#8734;</div><div class="sk">Herzlichkeit</div></div>
+        </div>
+        <a href="#kontakt" class="btn bp">Kurs anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kurse">
+  <div class="ct">
+    <div class="rv">
+      <h2 class="st">Kurse und <em>Preise</em></h2>
+      <p class="sd">Alle Kurse k&#246;nnen direkt per E-Mail oder Instagram angefragt werden.</p>
+      <p class="kn">Bitte beachte: &#8222;Vor Ort&#8220; bedeutet bei dir/euch Zuhause oder in einer von dir/euch vorgeschlagenen Location.</p>
+    </div>
+
+    <div class="kg">
+      <div class="kc rv">
+        <div class="ki"><img src="img/class-1.jpg" alt="Einzelstunde Yoga"></div>
+        <div class="kb">
+          <span class="kt">Individuell</span>
+          <h3>Einzelstunde Yoga</h3>
+          <p>100% auf dich zugeschnitten &#8211; egal ob K&#246;rpergef&#252;hl, Entspannung oder Ausgleich zum Alltag.</p>
+          <div class="km"><span>60 Min</span><span>Alle Levels</span><span>Online &amp; Vor Ort</span></div>
+          <div class="kp">
+            <div class="kpt">Preise</div>
+            <div class="pz"><span>Online</span><strong>59 &euro;</strong></div>
+            <div class="pz"><span>Vor Ort</span><strong>69 &euro;</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kc rv">
+        <div class="ki"><img src="img/class-3.jpg" alt="Online Yoga"></div>
+        <div class="kb">
+          <span class="kt">Von zu Hause</span>
+          <h3>Online Yoga</h3>
+          <p>Flexibel von zu Hause &#8211; &#252;ber Google Meet. Gleiche Herzlichkeit, gleiche Leidenschaft. Du brauchst nur deine Matte und etwas Platz.</p>
+          <div class="km"><span>60 Min</span><span>Alle Levels</span><span>Google Meet</span></div>
+          <div class="kp">
+            <div class="kpt">Preise</div>
+            <div class="pz"><span>Einzelstunde</span><strong>59 &euro;</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kc rv">
+        <div class="ki"><img src="img/class-2.jpg" alt="Gruppenstunde Yoga"></div>
+        <div class="kb">
+          <span class="kt">Gemeinsam</span>
+          <h3>Gruppenstunde Yoga</h3>
+          <p>Yoga zu zweit oder in kleiner Gruppe &#8211; bei euch zu Hause oder in einer von euch gestellten Location.</p>
+          <div class="km"><span>60 Min</span><span>2&#8211;4 Personen</span><span>Vor Ort</span></div>
+          <div class="kp">
+            <div class="kpt">Preise pro Person</div>
+            <div class="pz"><span>2 Personen</span><strong>49 &euro;</strong></div>
+            <div class="pz"><span>3 Personen</span><strong>39 &euro;</strong></div>
+            <div class="pz"><span>4 Personen</span><strong>35 &euro;</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc rv">
+      <div>
+        <p class="sl" style="color:#ffb8d0;">F&#252;r Unternehmen</p>
+        <h3>Firmen<em>yoga</em></h3>
+        <p>Investiere in das Wohlbefinden deines Teams. Yoga im B&#252;ro oder online f&#246;rdert Konzentration, reduziert Stress und st&#228;rkt den Zusammenhalt &#8211; nachhaltig und sp&#252;rbar.</p>
+        <ul class="ff">
+          <li>Ma&#223;geschneidert f&#252;r dein Team</li>
+          <li>Vor Ort bei euch oder online</li>
+          <li>Regelm&#228;&#223;ige Wochenkurse m&#246;glich</li>
+          <li>Flexible Termingestaltung</li>
+          <li>Rechnungsstellung f&#252;r Firmenkund:innen</li>
+        </ul>
+        <a href="#kontakt" class="btn bp">Unverbindlich anfragen</a>
+      </div>
+      <div class="flw">
+        <img src="img/logo.png" alt="Alsteryoga by Kathi">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stundenplan">
+  <div class="ct">
+    <div class="rv">
+      <p class="sl">W&#246;chentlich</p>
+      <h2 class="st">Stundenplan</h2>
+    </div>
+
+    <div class="ob rv">
+      <div class="oi">&#127800;</div>
+      <div class="ot">
+        <h4>Outdoor Yoga an der Alster</h4>
+        <p>Einmal die Woche biete ich Yoga drau&#223;en an, begrenzt auf 10 Teilnehmer:innen. Das ganze basiert auf Spendenbasis und die Termine werden &#252;ber Instagram angek&#252;ndigt.</p>
+      </div>
+    </div>
+
+    <div class="rv" style="background:var(--wh);border-radius:12px;padding:2.5rem;box-shadow:0 4px 24px rgba(233,30,140,.07);text-align:center;">
+      <p style="font-family:var(--fd);font-size:1.5rem;font-weight:300;color:var(--dk);margin-bottom:1rem;">Aktuelle Kurszeiten auf Anfrage</p>
+      <p style="font-size:.95rem;color:var(--mt);font-weight:300;margin-bottom:2rem;">Schreib mir einfach &#8211; ich finde gemeinsam mit dir einen passenden Termin.</p>
+      <a href="mailto:alsteryogabykathi@web.de" class="btn bp">E-Mail schreiben</a>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="ct">
+    <div class="kog">
+      <div class="rv">
+        <p class="sl">Meld dich gerne</p>
+        <h2 class="st">Kurs<br><em>anfragen</em></h2>
+        <div class="koi"><p>Du hast Fragen oder m&#246;chtest einen Kurs buchen? Ich melde mich innerhalb von 24 Stunden zur&#252;ck.</p></div>
+        <div class="koil">
+          <div class="koii"><div class="koic">&#9993;</div><div><div class="koill">E-Mail</div><div class="koilv">alsteryogabykathi@web.de</div></div></div>
+          <div class="koii"><div class="koic">&#128248;</div><div><div class="koill">Instagram</div><div class="koilv">@alsteryogabykathi</div></div></div>
+          <div class="koii"><div class="koic">&#128205;</div><div><div class="koill">Ort</div><div class="koilv">Hamburg &#8211; An der Alster</div></div></div>
+        </div>
+        <div class="koia">
+          <a href="mailto:alsteryogabykathi@web.de" class="btn bp">E-Mail schreiben</a>
+          <a href="https://www.instagram.com/alsteryogabykathi" target="_blank" class="btn bo">Instagram</a>
+        </div>
+      </div>
+
+      <div class="kfw rv">
+        <h3>Kursanfrage stellen &#9825;</h3>
+        <div class="fr">
+          <div class="fg"><label>Vorname</label><input type="text" id="fn" placeholder="Dein Name"></div>
+          <div class="fg"><label>E-Mail</label><input type="email" id="fe" placeholder="deine@email.de"></div>
+        </div>
+        <div class="fg">
+          <label>Ich interessiere mich f&#252;r</label>
+          <select id="fk">
+            <option>Einzelstunde Yoga Online (59 &euro;)</option>
+            <option>Einzelstunde Yoga Vor Ort (69 &euro;)</option>
+            <option>Gruppenstunde Yoga</option>
+            <option>Firmenyoga</option>
+            <option>Outdoor Yoga an der Alster</option>
+          </select>
+        </div>
+        <div class="fg"><label>Nachricht (optional)</label><textarea id="fm" placeholder="Level, Zeiten, Fragen ..."></textarea></div>
+        <a href="mailto:alsteryogabykathi@web.de" class="btn bp" style="width:100%;text-align:center;display:block;" id="fs2">Anfrage senden</a>
+        <p style="margin-top:.8rem;font-size:.75rem;color:var(--mt);text-align:center;">&#214;ffnet deinen E-Mail-Client.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recht">
+  <div class="ct">
+    <div class="rv">
+      <p class="sl">Pflichtangaben</p>
+      <h2 class="st">Rechtliches</h2>
+    </div>
+    <div class="rg">
+      <div class="rc rv">
+        <h3>Impressum</h3>
+        <p>Katharina [Nachname]<br>[Stra&#223;e, Nr.]<br>[PLZ] Hamburg<br><br>alsteryogabykathi@web.de</p>
+        <span class="rn">Bitte vollst&#228;ndig ausf&#252;llen &#8211; Impressumspflicht in Deutschland.</span>
+      </div>
+      <div class="rc rv">
+        <h3>Datenschutz</h3>
+        <p>Diese Website erhebt keine personenbezogenen Daten &#252;ber Tracking oder Cookies. Anfragen per E-Mail werden ausschlie&#223;lich zur Bearbeitung genutzt.</p>
+        <span class="rn">Bitte durch vollst&#228;ndige Datenschutzerkl&#228;rung ersetzen.</span>
+      </div>
+      <div class="rc rv">
+        <h3>AGB</h3>
+        <p>Stornierungen bitte mindestens 24 Stunden vorher per E-Mail. Gekaufte Karten sind 12 Monate g&#252;ltig.</p>
+        <span class="rn">Bitte durch vollst&#228;ndige AGB ersetzen.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <a href="#home" class="fl"><img src="img/logo.png" alt="Alsteryoga by Kathi"></a>
+      <ul class="fli">
+        <li><a href="#about">&#220;ber mich</a></li>
+        <li><a href="#kurse">Kurse und Preise</a></li>
+        <li><a href="#stundenplan">Stundenplan</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#recht">Impressum</a></li>
+        <li><a href="#recht">Datenschutz</a></li>
+      </ul>
+      <div class="fs">
+        <a href="https://www.instagram.com/alsteryogabykathi" target="_blank">IG</a>
+        <a href="mailto:alsteryogabykathi@web.de">&#9993;</a>
+      </div>
+    </div>
+    <p class="fc2">&copy; 2024 Alsteryoga by Kathi &middot; Hamburg &middot; Mit &#9825; gebaut</p>
+  </div>
+</footer>
+
+<script>
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('sc',window.scrollY>40)},{passive:true});
+document.getElementById('burger').addEventListener('click',function(){document.getElementById('mm').classList.add('op')});
+document.getElementById('mx').addEventListener('click',cm);
+function cm(){document.getElementById('mm').classList.remove('op')}
+var rv=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(e){e.forEach(function(x,i){if(x.isIntersecting){setTimeout(function(){x.target.classList.add('vi')},i*80);io.unobserve(x.target)}})},{threshold:0.08});
+  rv.forEach(function(el){io.observe(el)});
+}else{rv.forEach(function(el){el.classList.add('vi')})}
+document.getElementById('fs2').addEventListener('click',function(){
+  var s=encodeURIComponent('Kursanfrage: '+document.getElementById('fk').value);
+  var b=encodeURIComponent('Hallo Kathi,\n\nIch interessiere mich fuer: '+document.getElementById('fk').value+'\n\n'+(document.getElementById('fm').value||'')+'\n\nViele Gruesse,\n'+(document.getElementById('fn').value||''));
+  this.href='mailto:alsteryogabykathi@web.de?subject='+s+'&body='+b;
+});
+</script>
+</body>
+</html>
