@@ -185,11 +185,59 @@ section{padding:6rem 2rem}
 .koia{display:flex;flex-direction:column;gap:.8rem}
 .kfw{background:var(--wh);border-radius:12px;padding:2.5rem;box-shadow:0 4px 24px rgba(233,30,140,.07)}
 .kfw h3{font-family:var(--fd);font-size:1.5rem;font-weight:400;color:var(--dk);margin-bottom:1.5rem}
-.fg{margin-bottom:1.2rem}
-.fg label{display:block;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mt);font-weight:500;margin-bottom:.4rem}
-.fg input,.fg select,.fg textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--ps);border-radius:8px;background:var(--bg);font-family:var(--fb);font-size:.9rem;color:var(--dk);outline:none;transition:border-color .2s}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--pk)}
-.fg textarea{min-height:100px;resize:vertical}
+.fg{margin-bottom:1.4rem;position:relative}
+.fg label{
+  display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mt);font-weight:500;margin-bottom:.4rem;
+  transition:color .2s
+}
+.fg:focus-within label{color:var(--pk)}
+.fg input,.fg select,.fg textarea{
+  width:100%;
+  padding:.65rem 1rem;
+  border:1.5px solid var(--ps);
+  border-radius:8px;
+  background:var(--bg);
+  font-family:var(--fb);
+  font-size:.9rem;
+  color:var(--dk);
+  outline:none;
+  /* Auffahren-Effekt */
+  max-height:3rem;
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    max-height .3s ease,
+    padding .25s ease,
+    background .2s ease;
+}
+.fg textarea{
+  max-height:3rem;
+  min-height:3rem;
+  resize:none;
+  overflow:hidden;
+}
+/* Hover: leichter Glow */
+.fg input:hover,.fg select:hover,.fg textarea:hover{
+  border-color:var(--pm);
+  box-shadow:0 2px 8px rgba(233,30,140,.08);
+}
+/* Focus/Touch: auffahren + pinker Rahmen */
+.fg input:focus,.fg select:focus,.fg textarea:focus{
+  border-color:var(--pk);
+  box-shadow:0 4px 16px rgba(233,30,140,.14);
+  background:var(--wh);
+  max-height:3rem;
+  padding:.75rem 1rem;
+}
+.fg textarea:focus{
+  max-height:160px;
+  min-height:100px;
+  overflow:auto;
+  resize:vertical;
+}
+/* Pflichtfeld-Stern nicht mitanimieren */
+.fg label span{transition:none}
 .fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 
 #recht{background:var(--wh);padding:4rem 2rem}
@@ -216,17 +264,24 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
   .nb{display:flex}
   .hco,.ag,.kog{grid-template-columns:1fr;gap:2rem}
   .hlo{display:none}
-  .kg,.rg{grid-template-columns:repeat(2,1fr)}
+  .kg,.rg,.rlg{grid-template-columns:repeat(2,1fr)}
   .fc{grid-template-columns:1fr}
   .flw{display:none}
+  .ft{grid-template-columns:1fr;gap:1.5rem}
+  .as{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:640px){
-  section{padding:4rem 1.2rem}
-  .kg,.rg{grid-template-columns:1fr}
+  section{padding:3.5rem 1rem}
+  .kg,.rg,.rlg{grid-template-columns:1fr}
   .fr{grid-template-columns:1fr}
   .ob{flex-direction:column}
   .tb{font-size:.8rem}
   .tb th,.tb td{padding:.6rem .8rem}
+  .as{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .hac{flex-direction:column}
+  .hac .btn{text-align:center}
+  .kfw{padding:1.5rem 1rem}
+  .st{font-size:clamp(1.6rem,5vw,3rem)}
 }
 </style>
 </head>
@@ -295,9 +350,10 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
         <h2 class="st">Ich bin <em>Kathi</em></h2>
         <br>
         <div class="at">
-          <p>Hier erz&#228;hlst du deine pers&#246;nliche Yoga-Geschichte: Wie bist du zum Yoga gekommen? Was hat sich ver&#228;ndert? Was treibt dich an zu unterrichten?</p>
-          <p>Deine Ausbildung, deine Zertifizierungen, deine Philosophie &#8211; und warum dein Yoga genau das Richtige f&#252;r deine Teilnehmer:innen ist.</p>
-          <p>Dieser Text ist ein Platzhalter. Schick mir deinen eigenen Text und ich baue ihn ein. &#9825;</p>
+          <p>Ich bin Kathi, 34 Jahre und lebe in Hamburg. Meine Heimat ist jedoch noch n&#246;rdlicher, ein kleines Dorf bei Flensburg. Ich bin zwischen der Ost- und Nordsee aufgewachsen, weshalb ich mich hier nahe der Alster auch sehr wohl f&#252;hle.</p>
+          <p>Meine ersten Yogaerfahrungen durfte ich bei einem mehrw&#246;chigen Kurs an der Volkshochschule in Flensburg sammeln. W&#228;hrend meines Tourismusmanagement-Studiums verbrachte ich zwei Auslandssemester in Australien, wo ich zum ersten Mal an einem Yogakurs auf Englisch teilnehmen konnte &#8211; eine tolle Erfahrung, die ich nicht missen m&#246;chte. Nach meiner R&#252;ckkehr haben meine Mitbewohner*innen und ich in unserer Wohngemeinschaft in Bremen regelm&#228;&#223;ig unser Sofa beiseitegeschoben und in kleiner Runde mit der bekannten Yogalehrerin Mady Morrison digital praktiziert. Viele verschiedene Yogastile habe ich seither in Fitnessstudios und Yogastudios ausprobiert.</p>
+          <p>Im vergangenen Jahr 2025 habe ich mich dann entschieden, selbst eine Yogaausbildung auf Teneriffa in Spanien zu machen. Die Zeit in der Shambhala Yoga Schule war einmalig und ich bin sehr dankbar, mein Wissen, meine Praxis und die Yoga Philosophy erweitert zu haben. Heute unterrichte ich Einzelstunden, kleine Gruppen und Online-Yoga, bei denen auch Meditation und Achtsamkeit einen festen Platz haben.</p>
+          <p>Neben Yoga bin ich tierlieb, liebe es, verschiedene Sportarten zu machen und neu auszuprobieren, zu reisen und Zeit mit meinem Partner, meinen Freund*innen und meiner Familie zu verbringen. Ich bin ein offener Mensch und versuche, diese Lebensfreude und Offenheit auch in meine Yogastunden einzubringen. Bei mir findest du einen authentischen, achtsamen und herzlichen Raum, in dem alle sich entspannen, neue Energie tanken und Yoga auf die ganz pers&#246;nliche Weise erleben d&#252;rfen.</p>
         </div>
         <div class="as">
           <div><div class="sn">10+</div><div class="sk">Jahre Yoga</div></div>
@@ -335,7 +391,7 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
       </div>
 
       <div class="kc rv">
-        <div class="ki"><img src="class-3.jpeg" alt="Online Yoga"></div>
+        <div class="ki"><img src="class-2.jpeg" alt="Online Yoga"></div>
         <div class="kb">
           <span class="kt">Von zu Hause</span>
           <h3>Online Yoga</h3>
@@ -349,7 +405,7 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
       </div>
 
       <div class="kc rv">
-        <div class="ki"><img src="class-2.jpeg" alt="Gruppenstunde Yoga"></div>
+        <div class="ki"><img src="class-3.jpeg" alt="Gruppenstunde Yoga"></div>
         <div class="kb">
           <span class="kt">Gemeinsam</span>
           <h3>Gruppenstunde Yoga</h3>
@@ -430,12 +486,12 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
       <div class="kfw rv">
         <h3>Kursanfrage stellen &#9825;</h3>
         <div class="fr">
-          <div class="fg"><label>Vorname</label><input type="text" id="fn" placeholder="Dein Name"></div>
-          <div class="fg"><label>E-Mail</label><input type="email" id="fe" placeholder="deine@email.de"></div>
+          <div class="fg"><label>Vorname <span style="color:var(--pk)">*</span></label><input type="text" id="fn" placeholder="Dein Name" required></div>
+          <div class="fg"><label>E-Mail <span style="color:var(--pk)">*</span></label><input type="email" id="fe" placeholder="deine@email.de" required></div>
         </div>
         <div class="fg">
-          <label>Ich interessiere mich f&#252;r</label>
-          <select id="fk">
+          <label>Ich interessiere mich f&#252;r <span style="color:var(--pk)">*</span></label>
+          <select id="fk" required>
             <option>Einzelstunde Yoga Online (59 &euro;)</option>
             <option>Einzelstunde Yoga Vor Ort (69 &euro;)</option>
             <option>Gruppenstunde Yoga</option>
@@ -448,20 +504,20 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
         <div style="margin:1.5rem 0;padding:1rem;background:rgba(233,30,140,.05);border-left:3px solid var(--pk);border-radius:4px;">
           <div style="margin-bottom:1rem;">
             <label style="display:flex;align-items:flex-start;gap:0.6rem;font-size:.85rem;color:var(--dk);font-weight:300;cursor:pointer;">
-              <input type="checkbox" id="fp" style="margin-top:2px;cursor:pointer;width:18px;height:18px;">
+              <input type="checkbox" id="fp" style="margin-top:2px;cursor:pointer;width:18px;height:18px;" required>
               <span>Ich stimme zu, dass meine Angaben aus dem Formular zur Bearbeitung meiner Anfrage verarbeitet werden. Die <a href="#recht" style="color:var(--pk);text-decoration:underline;">Datenschutzerklärung</a> habe ich zur Kenntnis genommen.</span>
             </label>
           </div>
           <div>
             <label style="display:flex;align-items:flex-start;gap:0.6rem;font-size:.85rem;color:var(--dk);font-weight:300;cursor:pointer;">
-              <input type="checkbox" id="ft" style="margin-top:2px;cursor:pointer;width:18px;height:18px;">
+              <input type="checkbox" id="ft" style="margin-top:2px;cursor:pointer;width:18px;height:18px;" required>
               <span>Ich habe die <a href="#recht" style="color:var(--pk);text-decoration:underline;">AGB</a> gelesen und akzeptiert.</span>
             </label>
           </div>
         </div>
         
         <a href="mailto:alsteryogabykathi@web.de" class="btn bp" style="width:100%;text-align:center;display:block;" id="fs2">Anfrage senden</a>
-        <p style="margin-top:.8rem;font-size:.75rem;color:var(--mt);text-align:center;">&#214;ffnet deinen E-Mail-Client.</p>
+        <p style="margin-top:.8rem;font-size:.75rem;color:var(--mt);text-align:center;"><span style="color:var(--pk)">*</span> Pflichtfelder &middot; &#214;ffnet deinen E-Mail-Client.</p>
       </div>
     </div>
   </div>
@@ -473,46 +529,60 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
       <p class="sl">Pflichtangaben</p>
       <h2 class="st">Rechtliches</h2>
     </div>
-    <div style="max-width:900px;margin:2rem auto;">
-      
-      <div class="rv" style="margin-bottom:3rem;padding:2rem;background:var(--pl);border-radius:12px;">
-        <h3 style="font-family:var(--fd);font-size:1.8rem;color:var(--dk);margin-bottom:1rem;">Impressum</h3>
-        <div style="font-size:.95rem;color:var(--md);line-height:1.8;">
-          <p><strong>Angaben gemäß §5 TMG:</strong></p>
-          <p><strong>Anbieterin:</strong><br>Katharina Jürgensen<br>Alsteryoga by Kathi</p>
-          <p><strong>Anschrift:</strong><br>Feldbrunnenstraße 31<br>20148 Hamburg<br>Deutschland</p>
-          <p><strong>Kontakt:</strong><br>E-Mail: <a href="mailto:alsteryogabykathi@web.de">alsteryogabykathi@web.de</a></p>
-          <p><strong>Berufsbezeichnung:</strong><br>Yogalehrerin (Ausbildung auf Teneriffa, Spanien, abgeschlossen)</p>
-          <p><strong>Umsatzsteuer:</strong><br>Keine Umsatzsteuer-Identifikationsnummer vorhanden, da Kleinunternehmerin nach §19 UStG</p>
-          <p><strong>Berufshaftpflicht / Versicherung:</strong><br>Barmenia Gewerbeversicherung</p>
-          <p><strong>Haftungshinweis / Disclaimer:</strong><br>Die Inhalte dieser Website wurden sorgfältig geprüft und nach bestem Wissen erstellt. Für die Vollständigkeit, Richtigkeit und Aktualität der Inhalte kann ich jedoch keine Gewähr übernehmen. Als Diensteanbieter bin ich gemäß §7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+    <div class="rlg" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;">
+
+      <div class="rv" style="background:var(--pl);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;">
+        <h3 style="font-family:var(--fd);font-size:1.3rem;color:var(--dk);margin-bottom:1rem;">Impressum</h3>
+        <div style="font-size:.82rem;color:var(--md);line-height:1.7;overflow-y:auto;max-height:340px;flex:1;">
+          <p><strong>Angaben gem&#228;&#223; §5 TMG</strong></p>
+          <p>Katharina J&#252;rgensen<br>Alsteryoga by Kathi<br>Feldbrunnenstra&#223;e 31<br>20148 Hamburg</p>
+          <p>E-Mail: <a href="mailto:alsteryogabykathi@web.de" style="color:var(--pk);">alsteryogabykathi@web.de</a></p>
+          <p><strong>Berufsbezeichnung:</strong><br>Yogalehrerin (Ausbildung auf Teneriffa, Spanien)</p>
+          <p><strong>Umsatzsteuer:</strong><br>Kleinunternehmerin gem&#228;&#223; §19 UStG &#8211; keine USt-ID vorhanden.</p>
+          <p><strong>Berufshaftpflicht:</strong><br>Barmenia Gewerbeversicherung</p>
+          <p><strong>Haftungshinweis:</strong><br>Die Inhalte wurden sorgf&#228;ltig gepr&#252;ft. F&#252;r die Vollst&#228;ndigkeit, Richtigkeit und Aktualit&#228;t kann keine Gew&#228;hr &#252;bernommen werden. Als Diensteanbieter bin ich gem&#228;&#223; §7 Abs.1 TMG f&#252;r eigene Inhalte nach den allgemeinen Gesetzen verantwortlich.</p>
+          <p><strong>Haftung f&#252;r Links:</strong><br>F&#252;r Inhalte verlinkter Seiten ist stets der jeweilige Anbieter verantwortlich.</p>
+          <p><strong>Urheberrecht:</strong><br>Die erstellten Inhalte unterliegen dem deutschen Urheberrecht. Vervielf&#228;ltigung oder Verbreitung bed&#252;rfen der schriftlichen Zustimmung.</p>
+          <p><strong>Streitschlichtung:</strong><br>Ich bin weder bereit noch verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
         </div>
       </div>
 
-      <div class="rv" style="margin-bottom:3rem;padding:2rem;background:var(--pl);border-radius:12px;">
-        <h3 style="font-family:var(--fd);font-size:1.8rem;color:var(--dk);margin-bottom:1rem;">Datenschutzerklärung</h3>
-        <div style="font-size:.95rem;color:var(--md);line-height:1.8;">
-          <p><strong>1. Datenschutz auf einen Blick</strong><br>Der Schutz deiner persönlichen Daten ist mir sehr wichtig. Ich behandle deine personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften.</p>
-          <p><strong>2. Verantwortliche Stelle</strong><br>Katharina Jürgensen, Feldbrunnenstraße 31, 20148 Hamburg, Deutschland<br>E-Mail: <a href="mailto:alsteryogabykathi@web.de">alsteryogabykathi@web.de</a></p>
-          <p><strong>3. Erhebung und Speicherung personenbezogener Daten</strong><br>Wenn du meine Website besuchst, werden automatisch Informationen erfasst (z. B. Browsertyp, Betriebssystem). Diese Daten dienen ausschließlich der technischen Bereitstellung und Sicherheit der Website.</p>
-          <p><strong>4. Kontaktformular</strong><br>Wenn du mir über ein Kontaktformular schreibst, werden deine Angaben inklusive deiner Kontaktdaten gespeichert, um deine Anfrage zu bearbeiten. Ohne deine Einwilligung gebe ich diese Daten nicht weiter.</p>
-          <p><strong>5. Speicherdauer</strong><br>Deine personenbezogenen Daten werden nur so lange gespeichert, wie es für die Bearbeitung deiner Anfrage erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.</p>
-          <p><strong>6. Deine Rechte</strong><br>Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit. Du kannst dich jederzeit unter <a href="mailto:alsteryogabykathi@web.de">alsteryogabykathi@web.de</a> an mich wenden.</p>
+      <div class="rv" style="background:var(--pl);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;">
+        <h3 style="font-family:var(--fd);font-size:1.3rem;color:var(--dk);margin-bottom:1rem;">Datenschutz</h3>
+        <div style="font-size:.82rem;color:var(--md);line-height:1.7;overflow-y:auto;max-height:340px;flex:1;">
+          <p><strong>1. Datenschutz auf einen Blick</strong><br>Der Schutz deiner pers&#246;nlichen Daten ist mir sehr wichtig. Ich behandle deine Daten vertraulich und entsprechend den gesetzlichen Vorschriften.</p>
+          <p><strong>2. Verantwortliche Stelle</strong><br>Katharina J&#252;rgensen, Feldbrunnenstra&#223;e 31, 20148 Hamburg<br><a href="mailto:alsteryogabykathi@web.de" style="color:var(--pk);">alsteryogabykathi@web.de</a></p>
+          <p><strong>3. Datenerhebung beim Website-Besuch</strong><br>Beim Besuch werden automatisch technische Informationen erfasst (Browsertyp, Betriebssystem, Uhrzeit). Grundlage: Art.&#160;6 Abs.&#160;1 lit.&#160;f DSGVO.</p>
+          <p><strong>4. Cookies</strong><br>Nur technisch notwendige Cookies, keine personenbezogenen Daten, keine Einwilligung erforderlich.</p>
+          <p><strong>5. Kontaktformular</strong><br>Deine Angaben werden zur Bearbeitung deiner Anfrage gespeichert und nicht ohne Einwilligung weitergegeben. Grundlage: Art.&#160;6 Abs.&#160;1 lit.&#160;b und f DSGVO.</p>
+          <p><strong>6. Kontakt per E-Mail</strong><br>Deine Angaben werden zur Bearbeitung gespeichert und nicht ohne Einwilligung weitergegeben.</p>
+          <p><strong>7. Speicherdauer</strong><br>Nur so lange wie f&#252;r die Anfrage n&#246;tig oder gesetzlich vorgeschrieben.</p>
+          <p><strong>8. Instagram</strong><br>Bei Nutzung kann Instagram den Besuch deinem Konto zuordnen. Weitere Infos: <a href="https://privacycenter.instagram.com/policy/" target="_blank" style="color:var(--pk);">Instagram Datenschutz</a></p>
+          <p><strong>9. Hosting (GitHub Pages)</strong><br>Bereitgestellt durch GitHub Inc. Beim Aufruf werden technische Informationen gespeichert. Grundlage: Art.&#160;6 Abs.&#160;1 lit.&#160;f DSGVO.</p>
+          <p><strong>10. Deine Rechte</strong><br>Auskunft, Berichtigung, L&#246;schung, Einschr&#228;nkung, Widerspruch, Daten&#252;bertragbarkeit &#8211; jederzeit per E-Mail.</p>
+          <p><strong>11. Beschwerderecht</strong><br>Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbeh&#246;rde zu beschweren.</p>
+          <p><strong>12. SSL/TLS-Verschl&#252;sselung</strong><br>Diese Website nutzt aus Sicherheitsgr&#252;nden eine SSL/TLS-Verschl&#252;sselung.</p>
         </div>
       </div>
 
-      <div class="rv" style="margin-bottom:3rem;padding:2rem;background:var(--pl);border-radius:12px;">
-        <h3 style="font-family:var(--fd);font-size:1.8rem;color:var(--dk);margin-bottom:1rem;">AGB – Allgemeine Geschäftsbedingungen</h3>
-        <div style="font-size:.95rem;color:var(--md);line-height:1.8;">
-          <p><strong>1. Geltungsbereich</strong><br>Diese AGB gelten für alle Verträge zwischen Alsteryoga by Kathi – Katharina Jürgensen und Teilnehmenden über Einzel- und Gruppenstunden.</p>
-          <p><strong>2. Vertragsabschluss</strong><br>Die Anmeldung erfolgt schriftlich per E-Mail oder über das Kontaktformular. Mit der Bestätigung per E-Mail kommt der Vertrag verbindlich zustande.</p>
-          <p><strong>3. Leistungen</strong><br>Die Anbieterin erteilt Yoga-Stunden nach Kursbeschreibung. Kurszeiten und Inhalte können bei Krankheit oder unvorhersehbaren Umständen geändert werden.</p>
-          <p><strong>4. Preise und Zahlungsbedingungen</strong><br>Alle Preise verstehen sich ohne Umsatzsteuer (Kleinunternehmerregelung §19 UStG). Die Zahlung erfolgt vor Beginn der Stunde auf das angegebene Konto.</p>
-          <p><strong>5. Stornierung</strong><br>Kostenlose Stornierung ist bis 24 Stunden vor Kursbeginn möglich. Bei späterer Absage oder Nichterscheinen wird die volle Gebühr fällig. Bei Absage durch die Anbieterin werden bereits gezahlte Gebühren vollständig erstattet.</p>
-          <p><strong>6. Teilnahmebedingungen und Haftung</strong><br>Die Teilnahme erfolgt auf eigene Verantwortung. Die Anbieterin haftet nur für Schäden aus Vorsatz oder grober Fahrlässigkeit sowie bei Schäden an Leben, Körper oder Gesundheit.</p>
-          <p><strong>7. Gerichtsstand</strong><br>Es gilt deutsches Recht. Gerichtsstand ist Hamburg.</p>
+      <div class="rv" style="background:var(--pl);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;">
+        <h3 style="font-family:var(--fd);font-size:1.3rem;color:var(--dk);margin-bottom:1rem;">AGB</h3>
+        <div style="font-size:.82rem;color:var(--md);line-height:1.7;overflow-y:auto;max-height:340px;flex:1;">
+          <p><strong>1. Geltungsbereich</strong><br>Diese AGB gelten f&#252;r alle Vertr&#228;ge zwischen Alsteryoga by Kathi &#8211; Katharina J&#252;rgensen und Teilnehmenden &#252;ber Einzel- und Gruppen-Yogastunden (vor Ort oder online).</p>
+          <p><strong>2. Vertragsabschluss</strong><br>Anmeldung per E-Mail oder Kontaktformular. Mit der Bestätigung per E-Mail kommt der Vertrag verbindlich zustande. Nur volljährige Personen oder deren gesetzliche Vertreter*innen.</p>
+          <p><strong>3. Leistungen</strong><br>Yoga-Stunden nach Kursbeschreibung. Kurszeiten und Inhalte können bei Krankheit oder unvorhersehbaren Umständen geändert werden.</p>
+          <p><strong>4. Preise &amp; Zahlung</strong><br>Alle Preise ohne Umsatzsteuer (Kleinunternehmerregelung §19 UStG). Zahlung vor Kursbeginn. Gilt als erfolgt bei Eingang beim der Anbieterin.</p>
+          <p><strong>5. Stornierung</strong><br>Kostenlos bis 24 Stunden vor Kursbeginn. Sp&#228;tere Absage oder Nichterscheinen: volle Geb&#252;hr f&#228;llig. Absage durch die Anbieterin: vollst&#228;ndige Erstattung.</p>
+          <p><strong>6. Teilnahme &amp; Haftung</strong><br>Teilnahme auf eigene Verantwortung. Haftung nur bei Vorsatz, grober Fahrl&#228;ssigkeit oder Sch&#228;den an Leben, K&#246;rper, Gesundheit. Bei gesundheitlichen Einschr&#228;nkungen vorher &#228;rztlichen Rat einholen.</p>
+          <p><strong>7. R&#252;cktritt der Anbieterin</strong><br>M&#246;glich bei wiederholtem Missachten von Kursregeln. Bereits gezahlte Geb&#252;hren werden nicht erstattet.</p>
+          <p><strong>8. Datenschutz</strong><br>Verarbeitung gem&#228;&#223; Datenschutzerkl&#228;rung. Nur notwendige Daten (Name, E-Mail, ggf. gesundheitliche Hinweise).</p>
+          <p><strong>9. Urheberrecht</strong><br>Kursmaterialien unterliegen dem Urheberrecht der Anbieterin. Vervielf&#228;ltigung oder Weitergabe ohne Zustimmung nicht gestattet.</p>
+          <p><strong>10. Widerrufsrecht</strong><br>Da Freizeitdienstleistungen, kein gesetzliches Widerrufsrecht f&#252;r sofortige Teilnahme.</p>
+          <p><strong>11. Gerichtsstand</strong><br>Deutsches Recht. Gerichtsstand Hamburg.</p>
+          <p><strong>12. Salvatorische Klausel</strong><br>Unwirksame Klauseln werden durch wirksame Regelungen ersetzt, die dem wirtschaftlichen Zweck am n&#228;chsten kommen.</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
