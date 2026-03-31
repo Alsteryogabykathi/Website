@@ -4,7 +4,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alsteryoga by Kathi</title>
-<meta name="description" content="Yoga in Hamburg mit Kathi">
+<link rel="canonical" href="https://alsteryogabykathi.github.io/Website/">
+
+<!-- Open Graph (Social Media) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alsteryogabykathi.github.io/Website/">
+<meta property="og:title" content="Alsteryoga by Kathi – Yoga in Hamburg">
+<meta property="og:description" content="Yogastunden in Hamburg an der Alster. Einzelstunden, Gruppenstunden und Online Yoga mit Herz und Achtsamkeit.">
+<meta property="og:image" content="https://alsteryogabykathi.github.io/Website/img/logo.png">
+<meta property="og:locale" content="de_DE">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alsteryoga by Kathi – Yoga in Hamburg">
+<meta name="twitter:description" content="Yogastunden in Hamburg an der Alster. Einzelstunden, Gruppenstunden und Online Yoga mit Herz und Achtsamkeit.">
+<meta name="twitter:image" content="https://alsteryogabykathi.github.io/Website/img/logo.png">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Alsteryoga by Kathi",
+  "description": "Yogastunden in Hamburg an der Alster. Einzelstunden, Gruppenstunden und Online Yoga.",
+  "url": "https://alsteryogabykathi.github.io/Website/",
+  "logo": "https://alsteryogabykathi.github.io/Website/img/logo.png",
+  "image": "https://alsteryogabykathi.github.io/Website/img/logo.png",
+  "email": "alsteryogabykathi@web.de",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Feldbrunnenstraße 31",
+    "addressLocality": "Hamburg",
+    "postalCode": "20148",
+    "addressCountry": "DE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.5753,
+    "longitude": 9.9925
+  },
+  "sameAs": ["https://www.instagram.com/alsteryogabykathi"],
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "areaServed": "Hamburg"
+}
+</script>
+
+<!-- Meta Description (verbessert) -->
+<meta name="description" content="Alsteryoga by Kathi – Yogastunden in Hamburg an der Alster. Einzelstunden, Gruppenstunden und Online Yoga mit Herz. Jetzt Kurs anfragen.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -229,7 +276,12 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
       </div>
     </div>
     <div class="hlo">
-      <img src="img/logo.png" alt="Alsteryoga by Kathi Logo">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+        <img src="img/logo.png" alt="Alsteryoga by Kathi Logo" style="max-width:300px;">
+        <div style="width:280px;height:350px;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(233,30,140,.25);">
+          <img src="img/Kathi-1.jpeg" alt="Kathi" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -365,8 +417,8 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
         <h2 class="st">Kurs<br><em>anfragen</em></h2>
         <div class="koi"><p>Du hast Fragen oder m&#246;chtest einen Kurs buchen? Ich melde mich innerhalb von 24 Stunden zur&#252;ck.</p></div>
         <div class="koil">
-          <div class="koii"><div class="koic">&#9993;</div><div><div class="koill">E-Mail</div><div class="koilv">alsteryogabykathi@web.de</div></div></div>
-          <div class="koii"><div class="koic">&#128248;</div><div><div class="koill">Instagram</div><div class="koilv">@alsteryogabykathi</div></div></div>
+          <div class="koii"><div class="koic">&#9993;</div><div><div class="koill">E-Mail</div><div class="koilv"><a href="mailto:alsteryogabykathi@web.de">alsteryogabykathi@web.de</a></div></div></div>
+          <div class="koii"><div class="koic">&#128248;</div><div><div class="koill">Instagram</div><div class="koilv"><a href="https://www.instagram.com/alsteryogabykathi" target="_blank">@alsteryogabykathi</a></div></div></div>
           <div class="koii"><div class="koic">&#128205;</div><div><div class="koill">Ort</div><div class="koilv">Hamburg &#8211; An der Alster</div></div></div>
         </div>
         <div class="koia">
@@ -392,6 +444,22 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
           </select>
         </div>
         <div class="fg"><label>Nachricht (optional)</label><textarea id="fm" placeholder="Level, Zeiten, Fragen ..."></textarea></div>
+        
+        <div style="margin:1.5rem 0;padding:1rem;background:rgba(233,30,140,.05);border-left:3px solid var(--pk);border-radius:4px;">
+          <div style="margin-bottom:1rem;">
+            <label style="display:flex;align-items:flex-start;gap:0.6rem;font-size:.85rem;color:var(--dk);font-weight:300;cursor:pointer;">
+              <input type="checkbox" id="fp" style="margin-top:2px;cursor:pointer;width:18px;height:18px;">
+              <span>Ich stimme zu, dass meine Angaben aus dem Formular zur Bearbeitung meiner Anfrage verarbeitet werden. Die <a href="#recht" style="color:var(--pk);text-decoration:underline;">Datenschutzerklärung</a> habe ich zur Kenntnis genommen.</span>
+            </label>
+          </div>
+          <div>
+            <label style="display:flex;align-items:flex-start;gap:0.6rem;font-size:.85rem;color:var(--dk);font-weight:300;cursor:pointer;">
+              <input type="checkbox" id="ft" style="margin-top:2px;cursor:pointer;width:18px;height:18px;">
+              <span>Ich habe die <a href="#recht" style="color:var(--pk);text-decoration:underline;">AGB</a> gelesen und akzeptiert.</span>
+            </label>
+          </div>
+        </div>
+        
         <a href="mailto:alsteryogabykathi@web.de" class="btn bp" style="width:100%;text-align:center;display:block;" id="fs2">Anfrage senden</a>
         <p style="margin-top:.8rem;font-size:.75rem;color:var(--mt);text-align:center;">&#214;ffnet deinen E-Mail-Client.</p>
       </div>
@@ -405,21 +473,45 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
       <p class="sl">Pflichtangaben</p>
       <h2 class="st">Rechtliches</h2>
     </div>
-    <div class="rg">
-      <div class="rc rv">
-        <h3>Impressum</h3>
-        <p>Katharina [Nachname]<br>[Stra&#223;e, Nr.]<br>[PLZ] Hamburg<br><br>alsteryogabykathi@web.de</p>
-        <span class="rn">Bitte vollst&#228;ndig ausf&#252;llen &#8211; Impressumspflicht in Deutschland.</span>
+    <div style="max-width:900px;margin:2rem auto;">
+      
+      <div class="rv" style="margin-bottom:3rem;padding:2rem;background:var(--pl);border-radius:12px;">
+        <h3 style="font-family:var(--fd);font-size:1.8rem;color:var(--dk);margin-bottom:1rem;">Impressum</h3>
+        <div style="font-size:.95rem;color:var(--md);line-height:1.8;">
+          <p><strong>Angaben gemäß §5 TMG:</strong></p>
+          <p><strong>Anbieterin:</strong><br>Katharina Jürgensen<br>Alsteryoga by Kathi</p>
+          <p><strong>Anschrift:</strong><br>Feldbrunnenstraße 31<br>20148 Hamburg<br>Deutschland</p>
+          <p><strong>Kontakt:</strong><br>E-Mail: <a href="mailto:alsteryogabykathi@web.de">alsteryogabykathi@web.de</a></p>
+          <p><strong>Berufsbezeichnung:</strong><br>Yogalehrerin (Ausbildung auf Teneriffa, Spanien, abgeschlossen)</p>
+          <p><strong>Umsatzsteuer:</strong><br>Keine Umsatzsteuer-Identifikationsnummer vorhanden, da Kleinunternehmerin nach §19 UStG</p>
+          <p><strong>Berufshaftpflicht / Versicherung:</strong><br>Barmenia Gewerbeversicherung</p>
+          <p><strong>Haftungshinweis / Disclaimer:</strong><br>Die Inhalte dieser Website wurden sorgfältig geprüft und nach bestem Wissen erstellt. Für die Vollständigkeit, Richtigkeit und Aktualität der Inhalte kann ich jedoch keine Gewähr übernehmen. Als Diensteanbieter bin ich gemäß §7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+        </div>
       </div>
-      <div class="rc rv">
-        <h3>Datenschutz</h3>
-        <p>Diese Website erhebt keine personenbezogenen Daten &#252;ber Tracking oder Cookies. Anfragen per E-Mail werden ausschlie&#223;lich zur Bearbeitung genutzt.</p>
-        <span class="rn">Bitte durch vollst&#228;ndige Datenschutzerkl&#228;rung ersetzen.</span>
+
+      <div class="rv" style="margin-bottom:3rem;padding:2rem;background:var(--pl);border-radius:12px;">
+        <h3 style="font-family:var(--fd);font-size:1.8rem;color:var(--dk);margin-bottom:1rem;">Datenschutzerklärung</h3>
+        <div style="font-size:.95rem;color:var(--md);line-height:1.8;">
+          <p><strong>1. Datenschutz auf einen Blick</strong><br>Der Schutz deiner persönlichen Daten ist mir sehr wichtig. Ich behandle deine personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften.</p>
+          <p><strong>2. Verantwortliche Stelle</strong><br>Katharina Jürgensen, Feldbrunnenstraße 31, 20148 Hamburg, Deutschland<br>E-Mail: <a href="mailto:alsteryogabykathi@web.de">alsteryogabykathi@web.de</a></p>
+          <p><strong>3. Erhebung und Speicherung personenbezogener Daten</strong><br>Wenn du meine Website besuchst, werden automatisch Informationen erfasst (z. B. Browsertyp, Betriebssystem). Diese Daten dienen ausschließlich der technischen Bereitstellung und Sicherheit der Website.</p>
+          <p><strong>4. Kontaktformular</strong><br>Wenn du mir über ein Kontaktformular schreibst, werden deine Angaben inklusive deiner Kontaktdaten gespeichert, um deine Anfrage zu bearbeiten. Ohne deine Einwilligung gebe ich diese Daten nicht weiter.</p>
+          <p><strong>5. Speicherdauer</strong><br>Deine personenbezogenen Daten werden nur so lange gespeichert, wie es für die Bearbeitung deiner Anfrage erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.</p>
+          <p><strong>6. Deine Rechte</strong><br>Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit. Du kannst dich jederzeit unter <a href="mailto:alsteryogabykathi@web.de">alsteryogabykathi@web.de</a> an mich wenden.</p>
+        </div>
       </div>
-      <div class="rc rv">
-        <h3>AGB</h3>
-        <p>Stornierungen bitte mindestens 24 Stunden vorher per E-Mail. Gekaufte Karten sind 12 Monate g&#252;ltig.</p>
-        <span class="rn">Bitte durch vollst&#228;ndige AGB ersetzen.</span>
+
+      <div class="rv" style="margin-bottom:3rem;padding:2rem;background:var(--pl);border-radius:12px;">
+        <h3 style="font-family:var(--fd);font-size:1.8rem;color:var(--dk);margin-bottom:1rem;">AGB – Allgemeine Geschäftsbedingungen</h3>
+        <div style="font-size:.95rem;color:var(--md);line-height:1.8;">
+          <p><strong>1. Geltungsbereich</strong><br>Diese AGB gelten für alle Verträge zwischen Alsteryoga by Kathi – Katharina Jürgensen und Teilnehmenden über Einzel- und Gruppenstunden.</p>
+          <p><strong>2. Vertragsabschluss</strong><br>Die Anmeldung erfolgt schriftlich per E-Mail oder über das Kontaktformular. Mit der Bestätigung per E-Mail kommt der Vertrag verbindlich zustande.</p>
+          <p><strong>3. Leistungen</strong><br>Die Anbieterin erteilt Yoga-Stunden nach Kursbeschreibung. Kurszeiten und Inhalte können bei Krankheit oder unvorhersehbaren Umständen geändert werden.</p>
+          <p><strong>4. Preise und Zahlungsbedingungen</strong><br>Alle Preise verstehen sich ohne Umsatzsteuer (Kleinunternehmerregelung §19 UStG). Die Zahlung erfolgt vor Beginn der Stunde auf das angegebene Konto.</p>
+          <p><strong>5. Stornierung</strong><br>Kostenlose Stornierung ist bis 24 Stunden vor Kursbeginn möglich. Bei späterer Absage oder Nichterscheinen wird die volle Gebühr fällig. Bei Absage durch die Anbieterin werden bereits gezahlte Gebühren vollständig erstattet.</p>
+          <p><strong>6. Teilnahmebedingungen und Haftung</strong><br>Die Teilnahme erfolgt auf eigene Verantwortung. Die Anbieterin haftet nur für Schäden aus Vorsatz oder grober Fahrlässigkeit sowie bei Schäden an Leben, Körper oder Gesundheit.</p>
+          <p><strong>7. Gerichtsstand</strong><br>Es gilt deutsches Recht. Gerichtsstand ist Hamburg.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -449,19 +541,54 @@ footer{background:var(--dk);padding:3rem 2rem 2rem}
 <script>
 var nav=document.getElementById('nav');
 window.addEventListener('scroll',function(){nav.classList.toggle('sc',window.scrollY>40)},{passive:true});
-document.getElementById('burger').addEventListener('click',function(){document.getElementById('mm').classList.add('op')});
-document.getElementById('mx').addEventListener('click',cm);
-function cm(){document.getElementById('mm').classList.remove('op')}
-var rv=document.querySelectorAll('.rv');
-if('IntersectionObserver' in window){
-  var io=new IntersectionObserver(function(e){e.forEach(function(x,i){if(x.isIntersecting){setTimeout(function(){x.target.classList.add('vi')},i*80);io.unobserve(x.target)}})},{threshold:0.08});
-  rv.forEach(function(el){io.observe(el)});
-}else{rv.forEach(function(el){el.classList.add('vi')})}
-document.getElementById('fs2').addEventListener('click',function(){
-  var s=encodeURIComponent('Kursanfrage: '+document.getElementById('fk').value);
-  var b=encodeURIComponent('Hallo Kathi,\n\nIch interessiere mich fuer: '+document.getElementById('fk').value+'\n\n'+(document.getElementById('fm').value||'')+'\n\nViele Gruesse,\n'+(document.getElementById('fn').value||''));
-  this.href='mailto:alsteryogabykathi@web.de?subject='+s+'&body='+b;
+
+// Burger-Menü öffnen
+document.getElementById('burger').addEventListener('click',function(){
+  document.getElementById('mm').classList.add('op');
 });
+
+// Menü schließen (X-Button)
+function cm(){document.getElementById('mm').classList.remove('op');}
+document.getElementById('mx').addEventListener('click',cm);
+
+// Menü schließen bei Link-Klick
+document.querySelectorAll('.mm a').forEach(function(a){
+  a.addEventListener('click',cm);
+});
+
+// Scroll Reveal (IntersectionObserver)
+var revEls=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(x,i){
+      if(x.isIntersecting){
+        setTimeout(function(){x.target.classList.add('vi');},i*80);
+        io.unobserve(x.target);
+      }
+    });
+  },{threshold:.12});
+  revEls.forEach(function(el){io.observe(el);});
+}else{
+  revEls.forEach(function(el){el.classList.add('vi');});
+}
+
+// Kontaktformular → mailto
+var sendBtn=document.getElementById('fs2');
+if(sendBtn){
+  sendBtn.addEventListener('click',function(e){
+    e.preventDefault();
+    var fn=document.getElementById('fn').value.trim();
+    var fe=document.getElementById('fe').value.trim();
+    var fk=document.getElementById('fk').value;
+    var fm=document.getElementById('fm').value.trim();
+    var fp=document.getElementById('fp').checked;
+    var ft2=document.getElementById('ft').checked;
+    if(!fn||!fe){alert('Bitte Name und E-Mail angeben.');return;}
+    if(!fp||!ft2){alert('Bitte Datenschutz und AGB akzeptieren.');return;}
+    var body='Name: '+fn+'%0AE-Mail: '+fe+'%0AKurs: '+encodeURIComponent(fk)+(fm?'%0ANachricht: '+encodeURIComponent(fm):'');
+    window.location.href='mailto:alsteryogabykathi@web.de?subject=Kursanfrage%20–%20'+encodeURIComponent(fk)+'&body='+body;
+  });
+}
 </script>
 </body>
 </html>
